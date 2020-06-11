@@ -35,105 +35,64 @@ rows_00238 = []
 book = open_workbook("bio.xlsx")
 
 for sheet in book.sheets():
-
     for rowidx in range(sheet.nrows):
-
         row = sheet.row(rowidx)
-
         for colidx, cell in enumerate(row):
-
             if cell.value == "CLUSTER-0-0000" :
-
                 rows_00000.append(rowidx - 1) # minus 1 because there' s a label row in bio.xlsx
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0001" :
-
                 rows_00001.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0012" :
-
                 rows_00012.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0027" :
-
                 rows_00027.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0189" :
-
                 rows_00189.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0758" :
-
                 rows_00758.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0144" :
-
                 rows_00144.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0148" :
-
                 rows_00148.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0128" :
-
                 rows_00128.append(rowidx-1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0133" :
-
                 rows_00133.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0002" :
-
                 rows_00002.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0792" :
-
                 rows_00792.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0063" :
-
                 rows_00063.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-1590" :
-
                 rows_01590.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0079" :
-
                 rows_00079.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0213" :
-
                 rows_00213.append(rowidx-1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0570" :
-
                 rows_00570.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0097" :
-
                 rows_00097.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
-
             elif cell.value == "CLUSTER-0-0238" :
-
                 rows_00238.append(rowidx - 1)
                 rows_all.append(rowidx - 1)
 
@@ -149,9 +108,7 @@ cs2 = np.zeros(shape = (len(rows_all), 3))
 cs3 = np.zeros(shape = (l * len(rows_all), 3))
 
 for i in range(0, len(rows_all)):
-
 	for j in range(0, l):
-	
 		total[i * l + j, :] = act_cl[i, j, 0, :]
 
 # Create the colors for the best clustering representation
@@ -178,9 +135,7 @@ cs1[rows_00238, :] = [1.00, 0.49, 0.00] # amber (~orange)
 cs2 = cs1[rows_all, :]
 
 for i in range(0, len(rows_all)):
-
 	for j in range(0, l):
-
 		cs3[i * l + j, :] = cs2[i, :]
 
 # Comment or uncomment in order to enable the 2D or the 3D representation
