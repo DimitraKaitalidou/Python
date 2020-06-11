@@ -16,14 +16,10 @@ stack2 = [[] for i in repeat(None, 100)]
 # Read and scan the input files
 book1 = open_workbook("aminoacid_clustering.xlsx")
 for sheet1 in book1.sheets():
-
 	for rowidx1 in range(1, sheet1.nrows):
-
 		seq_l = np.empty((1, l), dtype = str)
 		for s in range(l):
-			
 			if np.any(seqs[rowidx1 - 1][s][:]):
-	
 				if seqs[rowidx1 - 1][s][0] == 1:
 					seq_l[0][s] = "A"
 				elif seqs[rowidx1 - 1][s][1] == 1:
@@ -64,9 +60,7 @@ for sheet1 in book1.sheets():
 					seq_l[0][s] = "I"
 				elif seqs[rowidx1 - 1][s][19] == 1:
 					seq_l[0][s] = "G"
-
 			else:
-
 				seq_l[0][s] = "X"
 
 		sequence_l = Seq(seq_l.tostring(), IUPAC.extended_protein)
@@ -79,12 +73,10 @@ stack2 = [x for x in stack2 if x != []]
 # Create the logo sequences
 print "Visualizations from the 1st layer..."
 for i in range(len(stack1)):
-
 	m = motifs.create(stack1[i])
 	m.weblogo("km_amino_layer1_cluster_" + str(i) + ".png", color_scheme = "color_classic")
 
 print "Visualizations from the 2nd layer..."
 for j in range(len(stack2)):
-
 	m = motifs.create(stack2[j])
 	m.weblogo("km_amino_layer2_cluster_" + str(j) + ".png", color_scheme = "color_classic")
